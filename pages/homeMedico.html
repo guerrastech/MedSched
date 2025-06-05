@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel Médico</title>
+  <link rel="stylesheet" href="../style/homeMedico.css" />
+</head>
+<body>
+  <header>
+    <div class="user-info">
+      <img id="fotoMedico" src="" alt="Foto do Médico" />
+      <span id="nomeMedico">Carregando...</span> 
+    </div>
+    <nav>
+      <a href="#" class="active">Agenda</a>
+      <a href="#">Perfil</a>
+    </nav>
+    <img class="logo" src="../logo/logoSF.png" alt="Logo" />
+  </header>
+
+  <main>
+    <aside>
+      <label for="servico">Serviço:</label>
+      <select id="servico">
+        <option>Plantão</option>
+      </select>
+      <div id="data-atual"></div>
+      <input type="date" id="data-consulta" />
+    </aside>
+
+    <section class="agenda">
+      <div class="alerta" id="alerta-tarde"  style="display: none;">
+        <strong>Atenção:</strong> Neste dia não há agendamentos no período da tarde.
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Hora</th>
+            <th>Nome</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tabela-consultas">
+          <!-- Consultas serão inseridas aqui -->
+        </tbody>
+      </table>
+
+      <button id="cancelar-consulta">Cancelar consulta</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="../logo/logoSF.png" alt="Logo MedSched" />
+        <p>Agende suas consultas com facilidade e segurança.</p>
+        <small>© MedSched 2025</small>
+      </div>
+      <div class="footer-col">
+        <h4>EMPRESA</h4>
+        <ul>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Nossa Missão</a></li>
+          <li><a href="#">Nossa Equipe</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>SERVIÇOS</h4>
+        <ul>
+          <li><a href="#">Agendamento Online</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>RECURSOS</h4>
+        <ul>
+          <li><a href="#">Dúvidas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="../script/homeMedico.js"></script>
+</body>
+</html>

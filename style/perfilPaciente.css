@@ -1,0 +1,191 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #d9f4f7;
+  padding: 1rem 2rem;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+}
+
+.user-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #004d4d;
+  font-weight: 600;
+}
+
+header nav a:hover{
+  color: #00cccc;
+  transform: translateY(-6px);
+}
+
+header .logo{
+  height: 100px;
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.perfil-container {
+  background: #e9f9fc;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.foto-nome {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.foto-nome img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.info-perfil {
+  margin-top: 1.5rem;
+  line-height: 2;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.acoes {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.acoes button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #00b3b3;
+  color: white;
+  cursor: pointer;
+}
+
+.acoes button:hover {
+  background: #009999;
+}
+
+.footer {
+  background: #e3f5f5;
+  padding: 2rem 4%;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* footer {
+  background-image: url('../logo/footerPNG.png'); 
+  background-size: cover;         
+  background-position: center;    
+  background-repeat: no-repeat;   
+  color: white;                   
+  padding: 2rem 4%;
+  font-size: 0.95rem;               
+} */
+
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-logo {
+  max-width: 250px;
+}
+
+.footer-logo img {
+  height: 200px;
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-logo small {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.footer-col h4 {
+  color: #00b3b3;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin: 0.3rem 0;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #00b3b3;
+}
+
+
+
+.copy {
+  text-align: center;
+  margin-top: 1rem;
+}

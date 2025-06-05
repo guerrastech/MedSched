@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Paciente</title>
+  <link rel="stylesheet" href="../style/perfilPaciente.css" />
+</head>
+<body>
+  <header>
+    <div class="user-header">
+      <img id="fotoUsuario" src="" alt="Foto do paciente" />
+      <span id="nomeUsuario">Olá, Maria</span>
+    </div>
+    <nav>
+     <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="./agendamento.html">Agendamento</a></li>
+        <li><a href="#" class="active">Perfil</a></li>
+     </ul>
+    </nav>
+    <img class="logo" src="../logo/logoSF.png" alt="Logo" />
+  </header>
+
+  <main>
+    <section class="perfil-container">
+      <div class="perfil-card">
+        <div class="foto-nome">
+          <img id="fotoPerfil" src="" alt="Foto do paciente" />
+          <div>
+            <h2 id="nomePaciente">Maria Silva</h2>
+            <p id="idadePaciente">57 Anos</p>
+          </div>
+        </div>
+
+        <div class="info-perfil">
+          <p><i class="icon">👤</i> <span id="nomeCompleto">Maria Cristina Da Silva</span></p>
+          <p><i class="icon">📅</i> <span id="dataNascimento">20/07/1967</span></p>
+          <p><i class="icon">📞</i> <span id="telefone">(87) 98360-3591</span></p>
+          <p><i class="icon">📧</i> <span id="email">mariacristina@gmail.com</span></p>
+          <p><i class="icon">🆔</i> <span id="cpf">775.535.004-53</span></p>
+          <p><i class="icon">🔒</i> <span id="senha">********</span></p>
+        </div>
+
+        <div class="acoes">
+          <button id="editar">Editar Perfil</button>
+          <button id="sair">Sair da conta</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="../logo/logoSF.png" alt="Logo MedSched">
+      <p>Agende suas consultas com facilidade e segurança.</p>
+      <small>© MedSched 2025</small>
+    </div>
+
+    <div class="footer-col">
+      <h4>EMPRESA</h4>
+      <ul>
+        <li><a href="#">Sobre Nós</a></li>
+        <li><a href="#">Nossa Missão</a></li>
+        <li><a href="#">Nossa Equipe</a></li>
+        <li><a href="#">Nossos Valores</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>SERVIÇOS</h4>
+      <ul>
+        <li><a href="#">Agendamento Online</a></li>
+        <li><a href="#">Especialidades Médicas</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>RECURSOS</h4>
+      <ul>
+        <li><a href="#">Dúvidas Frequente</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  <script src="../script/perfilPaciente.js"></script>
+</body>
+</html>

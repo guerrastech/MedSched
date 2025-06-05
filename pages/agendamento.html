@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Agendamento</title>
+  <link rel="stylesheet" href="../style/agendamento.css">
+</head>
+<body>
+  <header>
+    <div class="user-info">
+      <img src="../logo/user-icon.png" alt="User">
+      <span id="nomePaciente">Olá, Paciente</span>
+    </div>
+    <nav>
+      <a href="homePaciente.html">Início</a>
+      <a href="#" class="active">Agendamento</a>
+      <a href="perfilPaciente.html">Perfil</a>
+    </nav>
+    <img src="../logo/logoSF.png" alt="Logo" class="logo">
+  </header>
+
+  <main>
+    <h2>Agende sua consulta</h2>
+    <form id="form-agendamento" class="form-container">
+      <label>Especialidade*</label>
+      <select id="especialidade" required>
+        <option value="">Escolha uma especialidade</option>
+        <option value="Dentista">Dentista</option>
+        <option value="Ortopedista">Ortopedista</option>
+        <option value="Clínico Geral">Clínico Geral</option>
+        <option value="Dermatologista">Dermatologista</option>
+        <option value="Ginecologista">Ginecologista</option>
+      </select>
+
+      <label>Clínica ou hospital*</label>
+      <select id="hospital" required></select>
+
+      <label>Médico*</label>
+      <select id="medico" required></select>
+
+      <label>Data*</label>
+      <input type="date" id="data" required />
+
+      <label>Horário*</label>
+      <select id="horario" required>
+        <option value="">Escolha um horário</option>
+        <option value="07:00">07:00</option>
+        <option value="08:00">08:00</option>
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+      </select>
+
+      <label>Anexar documento</label>
+      <input type="text" id="documento" placeholder="Ex: Exame de sangue" />
+
+      <div class="form-buttons">
+        <button type="reset" class="voltar">Voltar</button>
+        <button type="submit" class="confirmar">Confirmar</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <div class="footer-col">
+      <img src="../logo/logoSF.png" alt="Logo">
+      <p>Agende suas consultas com facilidade e segurança.</p>
+      <small>© MedSched 2025</small>
+    </div>
+    <div class="footer-col">
+      <h4>EMPRESA</h4>
+      <ul>
+        <li><a href="#">Sobre Nós</a></li>
+        <li><a href="#">Nossa Missão</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>SERVIÇOS</h4>
+      <ul>
+        <li><a href="#">Agendamento Online</a></li>
+        <li><a href="#">Especialidades</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>RECURSOS</h4>
+      <ul>
+        <li><a href="#">Ajuda</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../script/agendamento.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e6f7f9;
+  padding: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info img {
+  border-radius: 50%;
+  width: 40%;
+  margin-right: 100px;
+}
+
+header .logo{
+  height: 100px;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #007fa3;
+}
+
+nav a.active {
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  padding: 1rem;
+  flex: 1;
+}
+
+aside {
+  width: 200px;
+  padding-right: 1rem;
+  border-right: 1px solid #ccc;
+}
+
+.agenda {
+  flex-grow: 1;
+  padding-left: 1rem;
+}
+
+.alerta {
+  background: #e2f4fc;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #b3e5fc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+table th, table td {
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+.footer {
+  background: #e3f5f5;
+  padding: 2rem 4%;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-logo img {
+  height: 100px;
+  margin-bottom: 0.5rem;
+}
+
+.footer-col h4 {
+  color: #00b3b3;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin: 0.3rem 0;
+}
+
+
+.footer-col ul li a{
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-col ul li a:hover{
+  color: #00cccc;
+  transform: translateY(-6px);
+}
+
+
+
+.agenda table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; 
+}
+
+.agenda thead {
+  background-color: #e6f7f9;
+}
+
+.agenda th, .agenda td {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agenda th:nth-child(1),
+.agenda td:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+
+.agenda th:nth-child(2),
+.agenda td:nth-child(2) {
+  width: 15%;
+}
+
+.agenda th:nth-child(3),
+.agenda td:nth-child(3) {
+  width: 30%;
+}
+
+.agenda th:nth-child(4),
+.agenda td:nth-child(4) {
+  width: 30%;
+}
+
+.agenda th:nth-child(5),
+.agenda td:nth-child(5) {
+  width: 20%;
+  text-align: center;
+}

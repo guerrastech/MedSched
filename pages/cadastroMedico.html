@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro Médico</title>
+  <link rel="stylesheet" href="../style/cadastroMedico.css"/>
+</head>
+<body>
+  <header class="header">
+    <img src="../logo/logoSF.png" alt="Logo MedSched" class="logo"/>
+    <nav>
+      <ul>
+        <li><a href="./home.html">Home</a></li>
+        <li><a href="#">Quem somos</a></li>
+        <li><a href="#">Ajuda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Cadastro</h1>
+ <div class="cadastro-container">
+  
+  <p class="subtitulo">Crie sua conta como médico</p>
+  <form class="cadastro-form" id="cadastro-medico-form">
+    <div class="form-row">
+      <input type="text" placeholder="Nome completo" required>
+      <input type="text" placeholder="Digite seu CPF" required>
+      <select required>
+        <option disabled selected>Gênero</option>
+        <option>Masculino</option>
+        <option>Feminino</option>
+        <option>Outro</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <select required>
+        <option disabled selected>Especialidade</option>
+        <option>Cardiologia</option>
+        <option>Pediatria</option>
+      </select>
+      <input  class="input-crm" type="text" placeholder="CRM" required>
+      <select  required style="min-width: 10px;">
+        <option  disabled selected>UF</option>
+        <option>SP</option>
+        <option>RJ</option>
+      </select>
+      <input type="text" placeholder="Celular" required>
+    </div>
+
+    <div class="form-row">
+      <input type="password" placeholder="Digite sua senha" required>
+      <input type="password" placeholder="Confirme sua senha" required>
+      <input type="email" placeholder="E-mail" required>
+    </div>
+
+    <ul class="password-requirements">
+      <li>Pelo menos uma letra</li>
+      <li>Pelo menos um número</li>
+      <li>No mínimo 8 caracteres</li>
+    </ul>
+
+    <div class="checkbox-container">
+      <input type="checkbox" id="termos" required>
+      <label for="termos">Li e concordo com os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a>.</label>
+    </div>
+
+    <button type="submit" class="btn">Cadastrar como médico</button>
+
+    <p class="login-link">Já possui conta? <a href="./login.html">Faça seu login</a></p>
+  </form>
+</div>
+>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="../logo/logoSF.png" alt="Logo MedSched" />
+        <p>Agende suas consultas com facilidade e segurança.</p>
+        <small>© MedSched 2025</small>
+      </div>
+      <div class="footer-col">
+        <h4>EMPRESA</h4>
+        <ul>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Nossa Missão</a></li>
+          <li><a href="#">Nossa Equipe</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>SERVIÇOS</h4>
+        <ul>
+          <li><a href="#">Agendamento Online</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>RECURSOS</h4>
+        <ul>
+          <li><a href="#">Dúvidas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script/cadatroMedico.js"></script>
+</body>
+</html>
