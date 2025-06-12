@@ -16,7 +16,7 @@ fetch("https://api-medsched.onrender.com/api/medicos/listarMedicos")
         <img src="${medico.img}" alt="Foto de ${medico.nome}">
         <h3>${medico.nome}</h3>
         <p>${medico.especialidade}</p>
-        <button onclick="location.href='perfilEspecialista.html?id=${medico._id}'" class="agendar-btn">Ver Perfil</button>
+        <button onclick="location.href='./perfilEspecialista.html?id=${medico._id}'" class="agendar-btn">Ver Perfil</button>
       `;
 
       carrossel.appendChild(card);
