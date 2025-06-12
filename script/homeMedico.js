@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");
+  const dataInput = document.getElementById("datepicker");
+    const screenWidth = window.innerWidth;
+
 
   if (!token || !id) {
     alert("Você precisa estar logado");
@@ -20,19 +23,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const medico = await response.json();
-
     document.getElementById("nomeMedico").textContent = medico.nome;
     document.getElementById("fotoMedico").src = medico.img;
+ if (screenWidth > 768) {
+    flatpickr("#datepicker", {
+      defaultDate: new Date(),
+      inline: true,
+      dateFormat: "Y-m-d",
+      onChange: function (selectedDates, dateStr) {
+        buscarConsultas(id, dateStr, token);
+      }
+    });
+  } else {
+    // Campo nativo para mobile
+    const mobileInput = document.getElementById('mobile-date');
+    const today = new Date().toISOString().split('T')[0];
+    mobileInput.value = today;
 
-    // Inicializar data com o dia de hoje
-    const dataInput = document.getElementById("data-consulta");
+    mobileInput.addEventListener('change', function () {
+      buscarConsultas(id, this.value,token);
+    });
+
+    // Dispara a busca ao carregar a tela também
+    buscarConsultas(id, mobileInput.value,token);
+  }
+
     const hoje = new Date().toISOString().split("T")[0];
-    dataInput.value = hoje;
-
-    // Buscar consultas ao carregar a página
     buscarConsultas(id, hoje, token);
 
-    // Buscar consultas ao alterar a data
     dataInput.addEventListener("change", () => {
       const dataSelecionada = dataInput.value;
       buscarConsultas(id, dataSelecionada, token);
@@ -45,7 +63,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Função para buscar e exibir as consultas
 async function buscarConsultas(medicoId, data, token) {
   try {
     const response = await fetch(`http://localhost:3000/api/consultas/medico-consultas?medicoId=${medicoId}&data=${data}`, {
@@ -60,27 +77,57 @@ async function buscarConsultas(medicoId, data, token) {
 
     const consultas = await response.json();
     const tabela = document.getElementById("tabela-consultas");
-    tabela.innerHTML = ""; 
+    tabela.innerHTML = "";
 
     if (consultas.length === 0) {
       tabela.innerHTML = `<tr><td colspan="5">Nenhuma consulta encontrada para esta data.</td></tr>`;
       return;
     }
 
-    // Preencher a tabela com os dados reais
     consultas.forEach((consulta, index) => {
+      console.log("Status da consulta:", consulta.status);
       const tr = document.createElement("tr");
+      const statusClass = consulta.status.toLowerCase();
       tr.innerHTML = `
         <td>${index + 1}</td>
         <td>${consulta.horario || "Sem horário"}</td>
         <td>${consulta.paciente?.nome || "Desconhecido"}</td>
         <td>${consulta.documento || "Sem descrição"}</td>
-        <td>
-          <button data-id="${consulta._id}" class="btn-cancelar">Cancelar</button>
-        </td>
+        <td><span class="status ${statusClass}">${consulta.status}</span></td>
       `;
+      tr.addEventListener("click", () => abrirModalConsulta(consulta));
       tabela.appendChild(tr);
     });
+
+    document.querySelectorAll(".btn-cancelar").forEach(btn => {
+      btn.addEventListener("click", async (e) => {
+        e.stopPropagation();
+        const consultaId = e.target.getAttribute("data-id");
+        const confirmar = confirm("Tem certeza que deseja cancelar esta consulta?");
+        if (!confirmar) return;
+
+        try {
+          const response = await fetch(`http://localhost:3000/api/consultas/cancelarConsulta/${consultaId}`, {
+            method: "DELETE",
+            headers: {
+              "Authorization": `Bearer ${token}`
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error("Falha ao cancelar consulta.");
+          }
+
+          alert("Consulta cancelada com sucesso.");
+          buscarConsultas(medicoId, data, token);
+
+        } catch (error) {
+          console.error("Erro ao cancelar consulta:", error);
+          alert("Erro ao cancelar consulta.");
+        }
+      });
+    });
+
     verificarConsultasTarde(consultas);
 
   } catch (error) {
@@ -97,9 +144,63 @@ function verificarConsultasTarde(consultas) {
     return hora >= 13;
   });
 
-  if (!temConsultaTarde) {
-    alerta.style.display = "block";
-  } else {
-    alerta.style.display = "none";
-  }
+  alerta.style.display = temConsultaTarde ? "none" : "block";
 }
+
+function abrirModalConsulta(consulta) {
+  document.getElementById("btn-concluir").setAttribute("data-id", consulta.id);
+
+  document.getElementById("modal-nome").textContent = consulta.paciente?.nome || "Desconhecido";
+  document.getElementById("modal-dataHora").textContent = `${consulta.horario || "horário indefinido"}`;
+  document.getElementById("modal-status").textContent = consulta.status || "Indefinido";
+  document.getElementById("modal-motivo").textContent = consulta.documento || "Não informado";
+  document.getElementById("modal-historico").textContent = consulta.diagnostico || "Sem histórico.";
+  document.getElementById("modal-historico1").textContent = consulta.encamiamento || "Sem histórico.";
+  document.getElementById("modal-observacoes").textContent = consulta.observacoes || "Sem observações.";
+
+
+  document.getElementById("btn-concluir").setAttribute("data-id", consulta._id);
+
+  document.getElementById("modal-detalhes").classList.remove("hidden");
+}
+
+document.querySelector(".fechar-modal").addEventListener("click", () => {
+  document.getElementById("modal-detalhes").classList.add("hidden");
+});
+
+document.getElementById("btn-concluir").addEventListener("click", async () => {
+  const consultaId = document.getElementById("btn-concluir").getAttribute("data-id");
+  const token = localStorage.getItem("token");
+  const id = localStorage.getItem("id");
+  const dataSelecionada = document.getElementById("datepicker").value;
+
+  if (!consultaId) return;
+
+  try {
+    console.log("Concluindo consulta ID:", consultaId);
+    const response = await fetch(`http://localhost:3000/api/consultas/atualizarConsulta/${consultaId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({ status: "concluido" })
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao concluir a consulta.");
+    }
+
+    alert("Consulta marcada como concluída com sucesso.");
+    document.getElementById("modal-detalhes").classList.add("hidden");
+    buscarConsultas(id, dataSelecionada, token);
+
+  } catch (error) {
+    console.error("Erro ao concluir consulta:", error);
+    alert("Erro ao concluir a consulta.");
+  }
+});
+
+document.getElementById("btn-inserir-info").addEventListener("click", () => {
+  alert("Função de inserção de informações ainda não implementada.");
+});

@@ -1,9 +1,20 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const pacienteId = localStorage.getItem("id");
-  document.getElementById("nomePaciente").textContent = `Olá, ${localStorage.getItem("nome") || "Paciente"}`;
+  document.getElementById("nomeUsuario").textContent = `Olá, ${localStorage.getItem("nome") || "Paciente"}`;
 
   const hospitalSelect = document.getElementById("hospital");
   const medicoSelect = document.getElementById("medico");
+
+    const menuToggle = document.getElementById("menuToggle");
+  const menuNav = document.getElementById("menuNav");
+
+  if (menuToggle && menuNav) {
+    menuToggle.addEventListener("click", () => {
+      menuNav.classList.toggle("show");
+    });
+  }
+
+
 
   // Carrega hospitais
   const hospitais = await fetch("http://localhost:3000/api/hospitais/listarHospitais")
@@ -22,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const hospitalId = hospitalSelect.value;
     medicoSelect.innerHTML = `<option value="">Carregando...</option>`;
     if (!hospitalId) return;
-
+    
     const medicos = await fetch(`http://localhost:3000/api/medicos/buscaPorHospital/${hospitalId}`)
       .then(res => res.json());
 
@@ -45,10 +56,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       hospital: hospitalSelect.value,
       date: document.getElementById("data").value,
       horario: document.getElementById("horario").value,
-      documento: document.getElementById("documento").value
+      documento: document.getElementById("documento").value,
+      status: 'agendado',
+      diagnostico: '1 consulta',
+      encamiamento: '1 consulta',
+      observacoes: ['1 consulta','1 consulta']
     };
 
     try {
+      console.log("Dados a enviar:", data);
       const response = await fetch("http://localhost:3000/api/consultas/marcar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -56,9 +72,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
 
       if (response.ok) {
-        alert("Consulta agendada com sucesso!");
-        window.location.href = "homePaciente.html";
-      } else {
+  document.getElementById("modalSucesso").style.display = "flex";
+  } else {
         const res = await response.json();
         alert("Erro: " + (res.mensagem || "Não foi possível agendar."));
       }
@@ -67,4 +82,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       alert("Erro de rede.");
     }
   });
+
+
+
 });
+
+  function voltarParaHome() {
+  window.location.href = "./perfilPaciente.html";
+}

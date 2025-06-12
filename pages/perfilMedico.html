@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perfil do Paciente</title>
-  <link rel="stylesheet" href="../style/perfilPaciente.css" />
+  <title>Perfil Médico</title>
+  <link rel="stylesheet" href="../style/perfilMedico.css" />
 </head>
 <body>
+    <div class="wrapper">
   <header>
     <div class="user-header">
       <img id="fotoUsuario" src="" alt="Foto do paciente" />
       <span id="nomeUsuario">Olá, Maria</span>
     </div>
-     <button class="menu-toggle" id="menuToggle">&#9776;</button>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button> 
     <nav class="menuNav">
      <ul>
-        <li><a href="./consultasPacientes.html">Início</a></li>
-        <li><a href="./agendamento.html">Agendamento</a></li>
-        <li><a href="./perfilPaciente.html" class="active">Perfil</a></li>
+        <li><a href="./homeMedico.html">Agenda</a></li>
+        <li><a href="#" class="active">Perfil</a></li>
      </ul>
     </nav>
     <img class="logo" src="../logo/logoSF.png" alt="Logo" />
@@ -26,32 +25,33 @@
   <main class="perfil-container">
     <section class="perfil-card">
       <div class="perfil-esquerda">
-          <div class="imagem-container">
-  <img id="fotoPerfil" src="" alt="Foto do paciente" />
-  <div class="overlay">
-    <span class="icone-editar" id="botaoEditarFoto">✏️ Editar</span>
-  </div>
-  <input type="file" id="inputImagem" accept="image/*" style="display: none" />
-</div>
+        <label for="inputFoto">
+         <div class="foto-wrapper" id="editarFoto"> 
+            <img id="fotoPerfil" src="" alt="Foto do médico" class="foto-perfil" style="cursor:pointer;" />
+            <div class="foto-overlay">✏️ Editar foto</div>
+         </div>
+        </label>
+<input type="file" id="inputFoto" accept="image/*" style="display:none;" />
+        <h2 id="nomeMedico">Dr. Nome</h2>
+        <p><i class="icon">🩺</i> <span id="especialidade">Dentista</span></p>
+        <p><i class="icon">🆔</i> <span id="crmUf">SP123456</span></p>
+        <p><i class="icon">🏥</i> <span id="nomeHospital">Hospital X</span></p>
+        <p><i class="icon">📞</i> <span id="telefone">(87) 98360-3591</span></p>
+        <p><i class="icon">📧</i> <span id="email">mariacristina@gmail.com</span></p>
+      </div>
+      <div class="perfil-direita">
+        <h3>Sobre</h3>
+        <p id="descricao">Descrição do médico</p>
 
-          <div>
-            <h2 id="nomePaciente">Maria Silva</h2>
-            <p id="idadePaciente">57 Anos</p>
-          </div>
-        </div>
+        <h3>Experiência Profissional</h3>
+        <ul>
+          <li>Hospital Real Português — 3 anos</li>
+          <li>Hospital São Marcos — 4 anos</li>
+        </ul>
 
-        <div class="perfil-direita">
-          <p><i class="icon">👤</i> <span id="nomeCompleto">Maria Cristina Da Silva</span></p>
-          <p><i class="icon">📅</i> <span id="dataNascimento">20/07/1967</span></p>
-          <p><i class="icon">📞</i> <span id="telefone">(87) 98360-3591</span></p>
-          <p><i class="icon">📧</i> <span id="email">mariacristina@gmail.com</span></p>
-          <p><i class="icon">🆔</i> <span id="cpf">775.535.004-53</span></p>
-          <p><i class="icon">🔒</i> <span id="senha">********</span></p>
-        </div>
-
-        <div class="acoes">
-          <button id="editar">Editar Perfil</button>
-          <button id="sair">Sair da conta</button>
+        <div class="botoes">
+          <button class="editar">Editar Perfil</button>
+          <button class="sair" id="sair">Sair da conta</button>
         </div>
       </div>
     </section>
@@ -93,21 +93,28 @@
   </div>
 </footer>
 
+</div>
+
+
 <div id="modal-editar" class="modal">
   <div class="modal-content">
     <span class="close" id="fecharModal">&times;</span>
     <h2>Editar Perfil</h2>
     <form id="form-editar">
       <label>Nome: <input type="text" id="edit-nome" required /></label><br />
+      <label>Especialidade: <input type="text" id="edit-especialidade" required /></label><br />
+      <label>CRM: <input type="text" id="edit-crm" required /></label><br />
+      <label>UF: <input type="text" id="edit-uf" required /></label><br />
       <label>Telefone: <input type="text" id="edit-telefone" required /></label><br />
       <label>Email: <input type="email" id="edit-email" required /></label><br />
+      <label>Descrição: <textarea id="edit-descricao" rows="4"></textarea></label><br />
       <button type="submit">Salvar</button>
     </form>
   </div>
 </div>
 
 
- <script>
+  <script>
   const menuToggle = document.getElementById('menuToggle');
   const menuNav = document.querySelector('nav.menuNav');
 
@@ -116,6 +123,6 @@
   });
 </script>
 
-  <script src="../script/perfilPaciente.js"></script>
+  <script src="../script/perfilMedico.js"></script>
 </body>
 </html>

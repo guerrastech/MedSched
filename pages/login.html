@@ -8,8 +8,10 @@
 </head>
 <body>
   <header class="header">
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
     <img src="../logo/logoSF.png" alt="Logo MedSched" class="logo"/>
-    <nav>
+    
+    <nav class="menuNav">
       <ul>
         <li><a href="./home.html">Home</a></li>
         <li><a href="#">Quem somos</a></li>
@@ -73,6 +75,15 @@
     </div>
   </div>
 </footer>
+
+ <script>
+  const menuToggle = document.getElementById('menuToggle');
+  const menuNav = document.querySelector('nav.menuNav');
+
+  menuToggle.addEventListener('click', () => {
+    menuNav.classList.toggle('show');
+  });
+</script>
 
 
   <script src="../script/login.js"></script>

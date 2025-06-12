@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Especialista</title>
+  <link rel="stylesheet" href="../style/perfilEspecialista.css" />
+</head>
+<body>
+    <div class="wrapper">
+  <header class="header">
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+    <img src="../logo/logoSF.png" alt="Logo MedSched" class="logo" />
+    <nav class="menuNav">
+      <ul>
+        <li><a href="./home.html">Home</a></li>
+        <li><a href="#">Quem somos</a></li>
+        <li><a href="#">Ajuda</a></li>
+      </ul>
+    </nav>
+    <a href="./login.html" class="login-btn">Login</a>
+  </header>
+
+  <main class="perfil-container">
+    <div class="perfil-box" id="perfil-box">
+      <!-- Conteúdo dinâmico aqui -->
+    </div>
+    <div class="btn-box">
+      <a href="./home.html" class="btn-voltar">Retornar para o início</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="../logo/logoSF.png" alt="Logo MedSched" />
+        <p>Agende suas consultas com facilidade e segurança.</p>
+        <small>© MedSched 2025</small>
+      </div>
+      <div class="footer-col">
+        <h4>EMPRESA</h4>
+        <ul>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Nossa Missão</a></li>
+          <li><a href="#">Nossa Equipe</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>SERVIÇOS</h4>
+        <ul>
+          <li><a href="#">Agendamento Online</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>RECURSOS</h4>
+        <ul>
+          <li><a href="#">Dúvidas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  </div>
+
+  <script src="../script/perfilEspecialista.js"></script>
+
+  <script>
+  const menuToggle = document.getElementById('menuToggle');
+  const menuNav = document.querySelector('nav.menuNav');
+
+  menuToggle.addEventListener('click', () => {
+    menuNav.classList.toggle('show');
+  });
+</script>
+</body>
+</html>

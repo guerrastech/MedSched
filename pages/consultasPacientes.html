@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consultas do Paciente</title>
+  <link rel="stylesheet" href="../style/consultasPacientes.css" />
+</head>
+<body>
+
+  <div class="wrapper">
+
+<header>
+    <div class="user-header">
+      <img id="fotoUsuario" src="" alt="Foto do paciente" />
+      <span id="nomeUsuario">Olá, Maria</span>
+    </div>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+    <nav class="menuNav">
+     <ul>
+        <li><a href="./consultasPacientes.html">Início</a></li>
+        <li><a href="./agendamento.html">Agendamento</a></li>
+        <li><a href="./perfilPaciente.html" class="active">Perfil</a></li>
+     </ul>
+    </nav>
+    <img class="logo" src="../logo/logoSF.png" alt="Logo" />
+  </header>
+
+  <main>
+    <section class="consultas-container">
+      <h2>Tudo pronto para sua próxima consulta?</h2>
+      <p class="subtitulo">Sua saúde, sua escolha. Agendamentos rápidos e sem complicações.</p>
+
+      <div id="listaConsultas" class="lista-consultas">
+        <!-- Consultas serão inseridas aqui via JS -->
+      </div>
+
+      <button class="novo-agendamento" onclick="window.location.href='./agendamento.html'">
+        + Novo Agendamento
+      </button>
+    </section>
+  </main>
+
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="../logo/logoSF.png" alt="Logo MedSched">
+      <p>Agende suas consultas com facilidade e segurança.</p>
+      <small>© MedSched 2025</small>
+    </div>
+
+    <div class="footer-col">
+      <h4>EMPRESA</h4>
+      <ul>
+        <li><a href="#">Sobre Nós</a></li>
+        <li><a href="#">Nossa Missão</a></li>
+        <li><a href="#">Nossa Equipe</a></li>
+        <li><a href="#">Nossos Valores</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>SERVIÇOS</h4>
+      <ul>
+        <li><a href="#">Agendamento Online</a></li>
+        <li><a href="#">Especialidades Médicas</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>RECURSOS</h4>
+      <ul>
+        <li><a href="#">Dúvidas Frequente</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+
+<div id="modalDetalhes" class="modal hidden">
+  <div class="modal-logo">
+    <img src="../logo/logoSF.png" alt="Logo MedSched" />
+    <div class="modal-content">
+      <h3>Informações de Agendamento</h3>
+      <p><strong>Especialidade:</strong> <span id="modalEspecialidade"></span></p>
+      <p><strong>Local:</strong> <span id="modalLocal"></span></p>
+      <p><strong>Doutor(a):</strong> <span id="modalMedico"></span></p>
+      <p><strong>Data:</strong> <span id="modalData"></span></p>
+      <p><strong>Horário:</strong> <span id="modalHorario"></span></p>
+
+      <div class="botoes-modal">
+        <button onclick="fecharModal()">Voltar à página inicial</button>
+        <a id="cancelarLink" href="#" class="cancelar-agendamento">Cancelar agendamento</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalCancelado" class="modal hidden">
+  <div class="modal-logo">
+    <img src="../logo/logoSF.png" alt="Logo MedSched" />
+    <div class="modal-content">
+      <h3>Agendamento cancelado com sucesso</h3>
+      <p>Esperamos vê-lo em breve. Sua saúde é nossa prioridade.</p>
+      <div style="margin-top: 20px; text-align: center;">
+        <button onclick="fecharModalCancelado()">Voltar à página inicial</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const menuNav = document.querySelector('nav.menuNav');
+
+  menuToggle.addEventListener('click', () => {
+    menuNav.classList.toggle('show');
+  });
+</script>
+
+  <script src="../script/consultasPacientes.js"></script>
+</body>
+</html>

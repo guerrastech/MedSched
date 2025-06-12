@@ -16,7 +16,7 @@ fetch("http://localhost:3000/api/medicos/listarMedicos")
         <img src="${medico.img}" alt="Foto de ${medico.nome}">
         <h3>${medico.nome}</h3>
         <p>${medico.especialidade}</p>
-        <button class="agendar-btn">Agendar</button>
+        <button onclick="location.href='perfilEspecialista.html?id=${medico._id}'" class="agendar-btn">Ver Perfil</button>
       `;
 
       carrossel.appendChild(card);

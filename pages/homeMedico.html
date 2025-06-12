@@ -5,16 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Painel Médico</title>
   <link rel="stylesheet" href="../style/homeMedico.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
+
 <body>
   <header>
     <div class="user-info">
       <img id="fotoMedico" src="" alt="Foto do Médico" />
       <span id="nomeMedico">Carregando...</span> 
+      
     </div>
-    <nav>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button> 
+    <nav class="menuNav">
       <a href="#" class="active">Agenda</a>
-      <a href="#">Perfil</a>
+      <a href="./perfilMedico.html">Perfil</a>
     </nav>
     <img class="logo" src="../logo/logoSF.png" alt="Logo" />
   </header>
@@ -26,7 +30,8 @@
         <option>Plantão</option>
       </select>
       <div id="data-atual"></div>
-      <input type="date" id="data-consulta" />
+      <div id="datepicker"></div>
+      <input type="date" id="mobile-date" class="form-control" />
     </aside>
 
     <section class="agenda">
@@ -40,16 +45,14 @@
             <th></th>
             <th>Hora</th>
             <th>Nome</th>
+            <th>Exame</th>
             <th>Status</th>
-            <th></th>
           </tr>
         </thead>
         <tbody id="tabela-consultas">
-          <!-- Consultas serão inseridas aqui -->
+          
         </tbody>
       </table>
-
-      <button id="cancelar-consulta">Cancelar consulta</button>
     </section>
   </main>
 
@@ -84,6 +87,54 @@
   </footer>
 
 
+<div id="modal-detalhes" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <img src="../logo/logoSF.png" alt="Logo do App" class="logo-modal" />
+      <span class="fechar-modal">&times;</span>
+    </div>
+    
+    <h2 class="titulo-modal">Detalhes da Consulta</h2>
+
+    <div class="modal-body">
+      <p><strong>Nome:</strong> <span id="modal-nome"></span></p>
+      <p><strong>Horario:</strong> <span id="modal-dataHora"></span></p>
+      <p><strong>Status de agendamento:</strong> <span id="modal-status"></span></p>
+      <p><strong>Motivo da consulta:</strong> <span id="modal-motivo"></span></p>
+
+      <hr />
+
+      <div>
+        <h3>Histórico breve:</h3>
+        <p id="modal-historico"></p>
+        <p id="modal-historico1"></p>
+      </div>
+
+      <div>
+        <h3>Observações recentes:</h3>
+        <p id="modal-observacoes"></p>
+      </div>
+    </div>
+
+    <div class="botoes-modal">
+      <button id="btn-inserir-info">Inserir informações</button>
+      <button id="btn-concluir">Concluir</button>
+    </div>
+  </div>
+</div>
+
+
+  <script>
+  const menuToggle = document.getElementById('menuToggle');
+  const menuNav = document.querySelector('nav.menuNav');
+
+  menuToggle.addEventListener('click', () => {
+    menuNav.classList.toggle('show');
+  });
+</script>
+
+
   <script src="../script/homeMedico.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 </html>

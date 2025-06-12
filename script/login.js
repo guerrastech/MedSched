@@ -1,6 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-login");
 
+    const menuToggle = document.getElementById("menuToggle");
+  const menuNav = document.getElementById("menuNav");
+
+  if (menuToggle && menuNav) {
+    menuToggle.addEventListener("click", () => {
+      menuNav.classList.toggle("show");
+    });
+  }
+
+
   document.getElementById("btn-medico").addEventListener("click", async (e) => {
     e.preventDefault();
     await fazerLogin("medico");
