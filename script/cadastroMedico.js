@@ -2,11 +2,8 @@ document.getElementById("cadastro-medico-form").addEventListener("submit", async
   e.preventDefault();
 
   const form = e.target;
-  const fileInput = form.img.files[0];
 
-  // Simulação do upload de imagem (em produção, use Cloudinary, S3, etc)
-  const imgURL = await uploadImagemSimulada(fileInput);
-
+  
   const data = {
     nome: form.nome.value,
     cpf: form.cpf.value,
@@ -41,11 +38,3 @@ document.getElementById("cadastro-medico-form").addEventListener("submit", async
   }
 });
 
-// Função simulada para gerar URL de imagem
-async function uploadImagemSimulada(file) {
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.readAsDataURL(file);
-  });
-}
