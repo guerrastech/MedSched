@@ -10,7 +10,7 @@ document.getElementById("cadastro-medico-form").addEventListener("submit", async
     genero: form.genero.value,
     especialidade: form.especialidade.value,
     CRM: form.crm.value,
-    hospital: "6837a0d733c37b63139d81f7",
+    hospital: "684a03697c6fe22794bbdf77",
     UF: form.uf.value,
     telefone: form.telefone.value,
     password: form.senha.value,
