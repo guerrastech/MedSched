@@ -24,9 +24,9 @@
   <p class="subtitulo">Crie sua conta como médico</p>
   <form class="cadastro-form" id="cadastro-medico-form">
     <div class="form-row">
-      <input type="text" placeholder="Nome completo" required>
-      <input type="text" placeholder="Digite seu CPF" required>
-      <select required>
+      <input type="text" placeholder="Nome completo" required name="nome">
+      <input type="text" placeholder="Digite seu CPF" required name="cpf">
+      <select required name="genero">
         <option disabled selected>Gênero</option>
         <option>Masculino</option>
         <option>Feminino</option>
@@ -35,24 +35,24 @@
     </div>
 
     <div class="form-row">
-      <select required>
+      <select required name="especialidade">
         <option disabled selected>Especialidade</option>
         <option>Cardiologia</option>
         <option>Pediatria</option>
       </select>
-      <input  class="input-crm" type="text" placeholder="CRM" required>
-      <select  required style="min-width: 10px;">
+      <input  class="input-crm" type="text" placeholder="CRM" required name="crm">
+      <select  required style="min-width: 10px;" name="uf">
         <option  disabled selected>UF</option>
         <option>SP</option>
         <option>RJ</option>
       </select>
-      <input type="text" placeholder="Celular" required>
+      <input type="text" placeholder="Celular" required name="telefone">
     </div>
 
     <div class="form-row">
-      <input type="password" placeholder="Digite sua senha" required>
+      <input type="password" placeholder="Digite sua senha" required name="senha">
       <input type="password" placeholder="Confirme sua senha" required>
-      <input type="email" placeholder="E-mail" required>
+      <input type="email" placeholder="E-mail" required name="email">
     </div>
 
     <ul class="password-requirements">
