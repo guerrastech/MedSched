@@ -16,6 +16,7 @@ document.getElementById("cadastro-paciente-form").addEventListener("submit", asy
     nascimento: form.nascimento.value,
     genero: form.genero.value,
     password: form.senha.value,
+    img: "immg nao cadastrada"
   };
 
   try {
