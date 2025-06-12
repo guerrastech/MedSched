@@ -11,14 +11,14 @@ async function carregarPerfil() {
   }
 
   try {
-    const res = await fetch(`http://localhost:3000/api/medicos/getById/${id}`);
+    const res = await fetch(`https://api-medsched.onrender.com/api/medicos/getById/${id}`);
     const medico = await res.json();
 
     // Busca nome do hospital
     let nomeHospital = "Não informado";
     if (medico.hospital) {
       try {
-        const hospitalRes = await fetch(`http://localhost:3000/api/hospitais/listarPorId/${medico.hospital}`);
+        const hospitalRes = await fetch(`https://api-medsched.onrender.com/api/hospitais/listarPorId/${medico.hospital}`);
         const hospital = await hospitalRes.json();
         nomeHospital = hospital.nome || nomeHospital;
       } catch (err) {

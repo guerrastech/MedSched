@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
   // Carrega hospitais
-  const hospitais = await fetch("http://localhost:3000/api/hospitais/listarHospitais")
+  const hospitais = await fetch("https://api-medsched.onrender.com/api/hospitais/listarHospitais")
     .then(res => res.json());
 
   hospitalSelect.innerHTML = `<option value="">Selecione um hospital</option>`;
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     medicoSelect.innerHTML = `<option value="">Carregando...</option>`;
     if (!hospitalId) return;
     
-    const medicos = await fetch(`http://localhost:3000/api/medicos/buscaPorHospital/${hospitalId}`)
+    const medicos = await fetch(`https://api-medsched.onrender.com/api/medicos/buscaPorHospital/${hospitalId}`)
       .then(res => res.json());
 
     medicoSelect.innerHTML = `<option value="">Selecione um médico</option>`;
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
       console.log("Dados a enviar:", data);
-      const response = await fetch("http://localhost:3000/api/consultas/marcar", {
+      const response = await fetch("https://api-medsched.onrender.com/api/consultas/marcar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)

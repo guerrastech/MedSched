@@ -19,7 +19,7 @@ document.getElementById("cadastro-paciente-form").addEventListener("submit", asy
   };
 
   try {
-    const response = await fetch("http://localhost:3000/api/pacientes/cadastrar", {
+    const response = await fetch("https://api-medsched.onrender.com/api/pacientes/cadastrar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)

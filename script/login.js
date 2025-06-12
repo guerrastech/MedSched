@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("senha").value;
 
     try {
-      const response = await fetch(`http://localhost:3000/api/auth/login/${tipo}`, {
+      const response = await fetch(`https://api-medsched.onrender.com/api/auth/login/${tipo}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cpf, password })

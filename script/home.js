@@ -5,7 +5,7 @@ const proximo = document.getElementById("proximo");
 
 let scrollPosition = 0;
 
-fetch("http://localhost:3000/api/medicos/listarMedicos")
+fetch("https://api-medsched.onrender.com/api/medicos/listarMedicos")
   .then(res => res.json())
   .then(medicos => {
     medicos.forEach(medico => {

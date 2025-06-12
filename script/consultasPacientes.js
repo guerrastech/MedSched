@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("nomeUsuario").textContent = `Olá, ${localStorage.getItem("nome") || "Paciente"}`;
 
     try {
-    const response = await fetch(`http://localhost:3000/api/pacientes/getById/${pacienteId}`, {
+    const response = await fetch(`https://api-medsched.onrender.com/api/pacientes/getById/${pacienteId}`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
   try {
-    const res = await fetch(`http://localhost:3000/api/consultas/paciente-consultas/${pacienteId}`, {
+    const res = await fetch(`https://api-medsched.onrender.com/api/consultas/paciente-consultas/${pacienteId}`, {
       headers: { "Authorization": `Bearer ${token}` }
     });
 
@@ -87,7 +87,7 @@ async function verDetalhes(id) {
   const token = localStorage.getItem("token");
 
   try {
-    const res = await fetch(`http://localhost:3000/api/consultas/consultas/${id}`, {
+    const res = await fetch(`https://api-medsched.onrender.com/api/consultas/consultas/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -105,7 +105,7 @@ async function verDetalhes(id) {
 cancelarLink.onclick = async (e) => {
   e.preventDefault();
   try {
-    const res = await fetch(`http://localhost:3000/api/consultas/cancelarConsulta/${consulta._id}`, {
+    const res = await fetch(`https://api-medsched.onrender.com/api/consultas/cancelarConsulta/${consulta._id}`, {
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${localStorage.getItem("token")}`,

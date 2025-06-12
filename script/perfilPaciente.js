@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
   try {
-    const response = await fetch(`http://localhost:3000/api/pacientes/getById/${pacienteId}`, {
+    const response = await fetch(`https://api-medsched.onrender.com/api/pacientes/getById/${pacienteId}`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
@@ -97,7 +97,7 @@ formEditar.addEventListener("submit", async (e) => {
   };
 
   try {
-    const response = await fetch(`http://localhost:3000/api/pacientes/atualizar/${id}`, {
+    const response = await fetch(`https://api-medsched.onrender.com/api/pacientes/atualizar/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -147,7 +147,7 @@ formEditar.addEventListener("submit", async (e) => {
       document.getElementById("fotoUsuario").src = novaUrl;
 
       // Atualiza no banco de dados com token
-      await fetch(`http://localhost:3000/api/pacientes/atualizar/${pacienteId}`, {
+      await fetch(`https://api-medsched.onrender.com/api/pacientes/atualizar/${pacienteId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

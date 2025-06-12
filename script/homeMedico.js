@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch(`http://localhost:3000/api/medicos/getById/${id}`, {
+    const response = await fetch(`https://api-medsched.onrender.com/api/medicos/getById/${id}`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function buscarConsultas(medicoId, data, token) {
   try {
-    const response = await fetch(`http://localhost:3000/api/consultas/medico-consultas?medicoId=${medicoId}&data=${data}`, {
+    const response = await fetch(`https://api-medsched.onrender.com/api/consultas/medico-consultas?medicoId=${medicoId}&data=${data}`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
@@ -107,7 +107,7 @@ async function buscarConsultas(medicoId, data, token) {
         if (!confirmar) return;
 
         try {
-          const response = await fetch(`http://localhost:3000/api/consultas/cancelarConsulta/${consultaId}`, {
+          const response = await fetch(`https://api-medsched.onrender.com/api/consultas/cancelarConsulta/${consultaId}`, {
             method: "DELETE",
             headers: {
               "Authorization": `Bearer ${token}`
@@ -178,7 +178,7 @@ document.getElementById("btn-concluir").addEventListener("click", async () => {
 
   try {
     console.log("Concluindo consulta ID:", consultaId);
-    const response = await fetch(`http://localhost:3000/api/consultas/atualizarConsulta/${consultaId}`, {
+    const response = await fetch(`https://api-medsched.onrender.com/api/consultas/atualizarConsulta/${consultaId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

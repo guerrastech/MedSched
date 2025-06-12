@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
   try {
-    const response = await fetch(`http://localhost:3000/api/medicos/getById/${medicoId}`);
+    const response = await fetch(`https://api-medsched.onrender.com/api/medicos/getById/${medicoId}`);
     const medico = await response.json();
     medicoAtual = medico
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("descricao").textContent = medico.descricao;
 
     // Busca nome do hospital se necessário
-    const hospitalResp = await fetch(`http://localhost:3000/api/hospitais/listarPorId/${medico.hospital}`);
+    const hospitalResp = await fetch(`https://api-medsched.onrender.com/api/hospitais/listarPorId/${medico.hospital}`);
     const hospitalData = await hospitalResp.json();
     document.getElementById("nomeHospital").textContent = hospitalData.nome || "Hospital";
 
@@ -85,7 +85,7 @@ formEditar.addEventListener("submit", async (e) => {
   };
 
   try {
-    const response = await fetch(`http://localhost:3000/api/medicos/atualizarMedico/${id}`, {
+    const response = await fetch(`https://api-medsched.onrender.com/api/medicos/atualizarMedico/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -135,7 +135,7 @@ document.getElementById("inputFoto").addEventListener("change", async function (
 
     // Atualiza no banco de dados
     const medicoId = localStorage.getItem("id");
-    await fetch(`http://localhost:3000/api/medicos/atualizarMedico/${medicoId}`, {
+    await fetch(`https://api-medsched.onrender.com/api/medicos/atualizarMedico/${medicoId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ img: novaUrl })
